@@ -1,30 +1,78 @@
-# LV Switchboard Mini-Package (Portfolio)
+# LV Switchboard — Approval Package (Mini Project)
 
-**Scope:** 600 V, 3φ, 4W, 60 Hz switchboard (2000 A bus) with main breaker and three feeders (400 A, 225 A, 100 A).  
-**Intent:** Produce an "approval set" with SLD, front elevation, a feeder control schematic, and auto-generated tables (BOM, wire list, terminals, nameplates).
+This project represents a simplified Low-Voltage (LV) switchboard design and documentation package. It models a **600 V, 3-phase, 4-wire, 60 Hz switchboard** with a **2000 A main breaker** and **three feeder circuits**. The deliverables mirror what would be prepared for an engineering *approval set*.
 
-> This repo contains *reference PDFs* you can mirror in **AutoCAD Electrical** (preferred for report generation) or **QElectroTech + LibreCAD**. See `HowTo_AutoCAD_Electrical.md` and `HowTo_QElectroTech_LibreCAD.md`.
+## 📂 Project Structure
 
-## Deliverables
-- `drawings/SLD-001.pdf` — Single-Line Diagram
-- `drawings/ELEV-001.pdf` — Front Elevation with device labels
-- `drawings/SCH-101.pdf` — Feeder control schematic
-- `tables/BOM_v1.xlsx`, `tables/WireList_v1.xlsx`, `tables/TerminalList_v1.xlsx`, `tables/Nameplates_v1.xlsx`
-- `export/LV_Switchboard_ApprovalSet_v1.pdf` — Combined set
+```
+LV-Switchboard/
+│
+├── drawings/                   # Engineering drawings
+│   ├── SLD-001.pdf             # Single-Line Diagram
+│   ├── ELEV-001.pdf            # Front elevation with device tags
+│   └── SCH-101.pdf             # Feeder control schematic
+│
+├── tables/                     # Auto-generated schedules
+│   ├── BOM_v1.xlsx             # Bill of Materials
+│   ├── WireList_v1.xlsx        # Wire list
+│   ├── TerminalList_v1.xlsx    # Terminal strip schedule
+│   └── Nameplates_v1.xlsx      # Equipment nameplate schedule
+│
+├── export/
+│   └── LV_Switchboard_ApprovalSet_v1.pdf # Combined approval package
+│
+└── README.md
+```
 
-## Assumptions
-- Service AFC: 50 kA @ 600 V (utility TBD). Switchboard SCCR target: 65 kA.
-- Conductors: Cu THHN/THWN (placeholder sizes).
-- Grounding per CEC Part I; coordination: main (electronic trip) > feeder MCCBs.
+## 🎯 Scope Summary
 
-## Device selection rationale (high level)
-- Main CB sized for bus (2000 A) with AIC ≥ utility AFC; electronic trip for adjustability and coordination.
-- Feeders sized to loads with selective coordination targeted via trip curves/settings.
+| Parameter          | Value                                                                    |
+| ------------------ | ------------------------------------------------------------------------ |
+| Voltage            | 600 V AC, 3φ, 4W, 60 Hz                                                  |
+| Main Bus Rating    | 2000 A                                                                   |
+| Feeders            | 400 A, 225 A, 100 A                                                      |
+| Protection Devices | MCCB main w/ electronic trip; MCCB feeders                               |
+| Documentation      | SLD, elevation, control schematic, BOM, wire list, terminals, nameplates |
 
-## Proof of *AutoCAD Electrical* use (what to show in repo)
-Include (after you recreate drawings in AE):
-- Screenshots of **Project Manager** and **Reports → BOM/Wire/Terminals**.
-- Exported **.xls/.csv** reports (replace the placeholders in `tables/`).
+### Functional Intent
 
-## Notes
-Portfolio exercise — not an engineered/stamped design.
+* Provide a representative **approval-stage submittal package** for an LV distribution board
+* Demonstrate **design clarity, documentation standards, and engineering workflow**
+* Include **automated table outputs** typically derived from electrical CAD tools
+
+## ✅ Deliverables
+
+| Category            | File                                       |
+| ------------------- | ------------------------------------------ |
+| Single-Line Diagram | `drawings/SLD-001.pdf`                     |
+| Front Elevation     | `drawings/ELEV-001.pdf`                    |
+| Feeder Schematic    | `drawings/SCH-101.pdf`                     |
+| BOM                 | `tables/BOM_v1.xlsx`                       |
+| Wire List           | `tables/WireList_v1.xlsx`                  |
+| Terminal List       | `tables/TerminalList_v1.xlsx`              |
+| Nameplates          | `tables/Nameplates_v1.xlsx`                |
+| Approval Set        | `export/LV_Switchboard_ApprovalSet_v1.pdf` |
+
+## ⚙️ Design Assumptions
+
+* **Short-circuit rating:** Utility AFC assumed 50 kA @ 600 V
+* **Board SCCR Target:** ≥ 65 kA
+* **Conductors:** Copper THHN/THWN (initial sizing placeholder)
+* **Grounding:** Per CEC Part I
+* **Coordination Strategy:**
+
+  * Main breaker with **adjustable electronic trip** element
+  * Feeder breakers coordinated via trip curves/settings
+
+## 🔍 Device Selection Rationale
+
+* **2000 A main MCCB** for full bus protection + coordination flexibility
+* **Feeder MCCBs** sized to probable load classes
+* Emphasis on **selective coordination**, arc-fault containment, and future adjustability
+
+## 📎 Notes
+
+* This is a **concept/demo-level** package — not intended for construction
+* Format and structure align with real-world electrical engineering documentation workflows
+
+---
